@@ -1,198 +1,197 @@
-/* charity: water Brand Colors & Fonts
+/* Charity: Water Landing Page Styles (Beginner Friendly) */
 
-Primary Colors:
-- Yellow:     #FFC907
-- Blue:       #2E9DF7
-
-Secondary Colors:
-- Light Blue: #8BD1CB
-- Green:      #4FCB53
-- Orange:     #FF902A
-- Red:        #F5402C
-- Dark Green: #159A48
-- Pink:       #F16061
-
-Fonts:
-- Proxima Nova
-- Avenir
-
-*/
-
-/* 
-  Charity: Water Landing Page Styles
-  This CSS uses the provided color palette and beginner-friendly styles.
-*/
-
-/* Set up the main font and background color for the whole page */
+/* Set a light blue background for the header and use Proxima Nova font for all text */
+html, body {
+  min-height: 100vh; /* Make sure the page fills the screen */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  /* Allow vertical scroll */
+}
 body {
-  background-color: #f4f8fb; /* Soft light blue for a fresh look */
-  font-family: 'Avenir', 'Proxima Nova', Arial, sans-serif;
+  /* No background color for the whole page */
+  font-family: 'Proxima Nova', Arial, sans-serif; /* Use Proxima Nova for all text */
   margin: 0;
   padding: 0;
-  color: #222;
+  color: #1A1A1A; /* Set all text color to dark gray */
 }
 
-/* Add a slight shadow and rounded corners to each section for depth */
-section {
-  background: #fff; /* White background for sections */
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.07); /* Soft blue shadow */
-  margin: 24px 10px; /* Space between sections */
-  padding: 24px 16px;
-}
-
-/* Hero Section Styles */
-.hero {
-  position: relative; /* Needed for overlay */
-  /* Set a background image that covers the whole section */
-  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1500&q=80');
-  background-size: cover;      /* Make the image cover the whole area */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat;
-  color: #fff;                 /* White text for contrast */
-  text-align: center;          /* Center the text */
-  padding: 60px 20px;          /* Add space above and below */
-  border-radius: 0 0 16px 16px; /* Only round bottom corners */
-
-  /* Add a dark overlay for better text readability */
-  /* This uses a simple linear-gradient overlay */
-  background-blend-mode: darken;
-  background-color: rgba(46, 157, 247, 0.45); /* Blue overlay */
-}
-
-/* Make the headline bold and modern */
-.hero h1 {
-  font-size: 2.5em;
-  font-weight: bold;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Soft shadow for readability */
-}
-
-/* Style the subheadline */
-.hero p {
-  font-size: 1.2em;
-  margin-top: 0;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.12);
-}
-
-/* Story Section Styles */
-.story {
-  background-color: #8BD1CB; /* Secondary Light Blue */
-  color: #222;
-  text-align: center;
-  padding: 30px 20px;
-}
-
-/* Add accent color to section headings */
-h2 {
-  color: #2E9DF7; /* Primary blue */
-  margin-top: 0;
-  font-weight: bold;
-}
-
-/* Call-to-Action Section Styles */
-.call-to-action {
-  background-color: #FFC907; /* Primary Yellow */
-  color: #222;
-  text-align: center;
-  padding: 30px 20px;
-}
-
-/* Style the impact story image */
-.impact-image {
+/* Header styles */
+header {
   width: 100%;
-  max-width: 320px;
-  border-radius: 10px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 8px rgba(46, 157, 247, 0.10);
+  max-width: none;
+  margin: 0;
+  background: #77A8BB; /* Keep your color for header only */
+  padding: 32px 0 0 0; /* More top padding, no bottom */
+  position: relative;
+  min-height: 0;
+  height: 90px; /* Fixed header height for mockup look */
+  line-height: normal;
+  box-sizing: border-box;
+  border-bottom: 2px solid #1A1A1A; /* Keep separator */
+  display: flex; /* Flex for easy alignment */
+  align-items: center;
+  justify-content: space-between;
 }
-
-/* Donate Button Styles */
-.donate-button {
-  display: inline-block;
-  background-color: #4FCB53; /* Green */
-  color: #fff;
-  padding: 14px 32px;
+.logo {
+  height: 1.1em; /* Match nav link font size */
+  margin-left: 48px; /* Space from left edge */
+  margin-top: 0;
+  display: block;
+}
+nav {
+  margin-right: 48px; /* Space from right edge */
+  height: auto;
+  display: flex;
+  align-items: center;
+  gap: 32px; /* Space between nav links */
+  justify-content: flex-end; /* Align nav links to the right */
+  flex: 1;
+}
+nav a {
+  color: #1A1A1A;
   text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
   font-size: 1.1em;
-  margin-top: 18px;
-  box-shadow: 0 2px 8px rgba(79, 203, 83, 0.10);
-  transition: background 0.3s, transform 0.2s;
-  border: none;
-  cursor: pointer;
+  line-height: 1.2;
+  display: inline-block;
+  /* No bold font */
+  margin: 0;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+nav a:hover {
+  background: #FFC907;
+  text-decoration: underline;
 }
 
-/* Change button color when hovered */
-.donate-button:hover {
-  background-color: #159A48; /* Dark Green */
-  transform: translateY(-2px) scale(1.04); /* Slight lift */
+/* Clear floats in header */
+header::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-/* Add some spacing between sections */
-section {
-  margin-bottom: 20px;
+/* Main section fills the whole screen, with yellow text area and image side by side */
+.main-section {
+  width: 100vw; /* Fill the whole screen width */
+  height: 100vh; /* Fill the whole screen height */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex; /* Place children side by side */
+  align-items: stretch;
+  background: none;
 }
 
-/* 
-  Media Queries for Responsive Design
-  Media queries help make your website look good on different screen sizes,
-  like phones (small screens) and computers (large screens).
-*/
+/* Yellow text area on the left */
+.main-text {
+  width: 80%; /* Make the yellow section even wider */
+  height: 90vh; /* Match the image height */
+  background: #FFC907;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  padding: 0 40px;
+  box-sizing: border-box;
+  border-radius: 0; /* No rounded corners */
+  margin: 0;
+}
 
-/* This media query applies styles when the screen is 600px wide or less (like on most phones) */
-@media (max-width: 600px) {
-  /* Make hero section padding smaller on small screens */
-  .hero {
-    padding: 32px 8px;
-    font-size: 1em;
+.main-text h1 {
+  color: #1A1A1A;
+  font-size: 2.6em;
+  margin-bottom: 24px;
+  line-height: 1.1;
+}
+.main-text p {
+  color: #1A1A1A;
+  font-size: 1.3em;
+  margin-bottom: 32px;
+  line-height: 1.4;
+}
+
+/* Image area on the right */
+.main-image-container {
+  width: 20%; /* Make the image section smaller */
+  height: 100vh;
+  box-sizing: border-box;
+  z-index: 0;
+}
+.main-image {
+  width: 100%;
+  height: 90vh;
+  object-fit: cover;
+  display: block;
+  border-radius: 0; /* No rounded corners */
+  margin: 0;
+  background: none;
+}
+
+/* Call-to-action button styles */
+.cta-button {
+  display: inline-block;
+  background-color: #FFC907; /* Yellow background */
+  color: #1A1A1A; /* Dark gray text */
+  border: 2px solid #1A1A1A; /* Dark gray border */
+  padding: 18px 40px; /* Bigger button */
+  border-radius: 8px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 0;
+  transition: background 0.3s;
+  margin-top: 8px;
+}
+.cta-button:hover {
+  background-color: #FFD84D;
+}
+
+/* Why Water section: centered with a light background */
+.whywater-section {
+  background-color: #FFF7E1; /* Light cream background */
+  padding: 48px 24px;
+  margin: 40px auto 0 auto; /* Center the section horizontally with margin on top */
+  max-width: 900px; /* Reasonable width for centering */
+  border-radius: 12px;
+  box-sizing: border-box;
+  text-align: center; /* Center the text */
+  display: block;
+}
+
+/* Responsive design for small screens */
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding: 16px 0 0 0;
   }
-
-  /* Make headline font size smaller so it fits on small screens */
-  .hero h1 {
-    font-size: 1.4em;
+  .logo {
+    margin-left: 0;
+    height: 36px;
   }
-
-  /* Make subheadline font size smaller */
-  .hero p {
-    font-size: 1em;
+  nav {
+    margin-right: 0;
+    gap: 16px;
   }
-
-  /* Make story and call-to-action sections have less padding */
-  .story,
-  .call-to-action,
-  .donation-section {
-    padding: 14px 8px;
+  .main-section {
+    flex-direction: column;
+    width: 100vw;
+    height: auto;
+    align-items: stretch;
   }
-
-  /* Make impact story image smaller and stack above the text */
-  .impact-content {
-    display: block; /* Stack items vertically */
+  .main-text, .main-image-container {
+    width: 100vw;
+    height: auto;
+    border-radius: 0;
+    padding: 18px 8px;
     text-align: center;
+    align-items: center;
   }
-
-  .impact-image {
-    width: 90%;    /* Make image take up most of the width */
-    max-width: 220px;
-  }
-}
-
-/* This media query applies styles when the screen is wider than 600px (like on tablets and computers) */
-@media (min-width: 601px) {
-  /* Show image and text side by side in the impact story */
-  .impact-content {
-    display: flex;           /* Place items in a row */
-    align-items: center;     /* Vertically center items */
-    justify-content: center; /* Center the whole group */
-    gap: 28px;               /* Space between image and text */
-    text-align: left;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .impact-image {
-    width: 300px;
+  .main-image {
+    width: 100vw;
+    height: 180px;
+    min-height: 180px;
+    border-radius: 0;
   }
 }
