@@ -1,6 +1,6 @@
 /* Charity: Water Landing Page Styles (Beginner Friendly) */
 
-/* Set a light blue background for the header and use Proxima Nova font for all text */
+/*body and Font styles*/
 html, body {
   min-height: 100vh; /* Make sure the page fills the screen */
   overflow-x: hidden; /* Prevent horizontal scroll */
@@ -14,12 +14,22 @@ body {
   color: #1A1A1A; /* Set all text color to dark gray */
 }
 
+/* Remove default margin from headings and paragraphs */
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+/* Make all elements use border-box for easier sizing */
+* {
+  box-sizing: border-box;
+}
+
 /* Header styles */
 header {
   width: 100%;
   max-width: none;
   margin: 0;
-  background: #77A8BB; /* Keep your color for header only */
+  background: #FFF; /* Changed header background to white */
   padding: 32px 0 0 0; /* More top padding, no bottom */
   position: relative;
   min-height: 0;
@@ -49,18 +59,18 @@ nav {
 nav a {
   color: #1A1A1A;
   text-decoration: none;
-  font-size: 1.1em;
+  font-size: 0.95em;         /* Made nav button text smaller */
   line-height: 1.2;
   display: inline-block;
   /* No bold font */
   margin: 0;
-  padding: 8px 16px;
+  padding: 6px 10px;         /* Made nav button padding smaller */
   border-radius: 4px;
-  transition: background 0.2s;
+  transition: background 0.2s; /* This is a transition effect */
 }
 nav a:hover {
   background: #FFC907;
-  text-decoration: underline;
+  text-decoration: none; /* Remove underline on hover */
 }
 
 /* Clear floats in header */
@@ -72,30 +82,32 @@ header::after {
 
 /* Main section fills the whole screen, with yellow text area and image side by side */
 .main-section {
-  width: 100vw; /* Fill the whole screen width */
-  height: 100vh; /* Fill the whole screen height */
+  width: 100vw;         /* Full width of the browser window */
+  height: 100vh;        /* Full height of the browser window */
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  display: flex; /* Place children side by side */
+  border: none;
+  display: flex;
   align-items: stretch;
   background: none;
+  overflow: hidden;
 }
 
 /* Yellow text area on the left */
 .main-text {
-  width: 80%; /* Make the yellow section even wider */
-  height: 90vh; /* Match the image height */
+  width: 480px;         /* Fixed width for the yellow box */
+  height: 100vh;        /* Full height */
   background: #FFC907;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   text-align: left;
-  padding: 0 40px;
-  box-sizing: border-box;
-  border-radius: 0; /* No rounded corners */
   margin: 0;
+  padding: 0 32px;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 0;
 }
 
 .main-text h1 {
@@ -113,85 +125,198 @@ header::after {
 
 /* Image area on the right */
 .main-image-container {
-  width: 20%; /* Make the image section smaller */
-  height: 100vh;
+  flex: 1;              /* Take up all remaining space */
+  height: 100vh;        /* Full height */
+  margin: 0;
+  padding: 0;
+  border: none;
   box-sizing: border-box;
-  z-index: 0;
+  display: flex;
 }
+
 .main-image {
   width: 100%;
-  height: 90vh;
-  object-fit: cover;
+  height: 100%;
+  object-fit: cover;    /* Fill the area, cropping if needed */
   display: block;
-  border-radius: 0; /* No rounded corners */
   margin: 0;
+  padding: 0;
+  border: none;
   background: none;
 }
 
 /* Call-to-action button styles */
+.cta-buttons {
+  display: flex;              /* Place buttons side by side */
+  margin-top: 8px;
+}
+
 .cta-button {
   display: inline-block;
-  background-color: #FFC907; /* Yellow background */
-  color: #1A1A1A; /* Dark gray text */
-  border: 2px solid #1A1A1A; /* Dark gray border */
-  padding: 18px 40px; /* Bigger button */
-  border-radius: 8px;
+  background-color: #FFC907;  /* Yellow background */
+  color: #1A1A1A;             /* Dark gray text */
+  border: 2px solid #1A1A1A;  /* Dark gray border */
+  padding: 18px 40px;
+  border-radius: 8px 0 0 8px; /* Left button: round left corners only */
   font-size: 1.2em;
   font-weight: bold;
   text-decoration: none;
-  margin-bottom: 0;
+  margin: 0;
   transition: background 0.3s;
-  margin-top: 8px;
 }
+
+/* Right button: round right corners only, remove double border */
+.cta-button + .cta-button {
+  border-radius: 0 8px 8px 0;
+  border-left: none;
+}
+
+/* Change to a slightly darker yellow on hover */
 .cta-button:hover {
-  background-color: #FFD84D;
+  background-color: #FFD84D; /* Slightly darker yellow */
 }
 
-/* Why Water section: centered with a light background */
-.whywater-section {
-  background-color: #FFF7E1; /* Light cream background */
-  padding: 48px 24px;
-  margin: 40px auto 0 auto; /* Center the section horizontally with margin on top */
-  max-width: 900px; /* Reasonable width for centering */
-  border-radius: 12px;
-  box-sizing: border-box;
-  text-align: center; /* Center the text */
-  display: block;
+/* Why Water section (centered, with title and subheading) */
+section[style*="background-color: #FFF7E1"] {
+  margin: 0 !important;      /* Remove all margin */
+  padding: 40px 24px !important; /* Add padding: 40px top/bottom, 24px left/right */
+  border: none !important;   /* Remove border */
+  margin: 0 !important;
+}
+section[style*="background-color: #FFF7E1"] h2 {
+  margin-bottom: 32px !important; /* Make space below the WHY WATER? heading bigger */
 }
 
-/* Responsive design for small screens */
-@media (max-width: 900px) {
-  header {
-    flex-direction: column;
-    height: auto;
-    padding: 16px 0 0 0;
-  }
-  .logo {
-    margin-left: 0;
-    height: 36px;
-  }
-  nav {
-    margin-right: 0;
-    gap: 16px;
-  }
-  .main-section {
-    flex-direction: column;
-    width: 100vw;
-    height: auto;
-    align-items: stretch;
-  }
-  .main-text, .main-image-container {
-    width: 100vw;
-    height: auto;
-    border-radius: 0;
-    padding: 18px 8px;
-    text-align: center;
-    align-items: center;
-  }
-  .main-image {
-    width: 100vw;
-    height: 180px;
-    min-height: 180px;
-    border-radius: 0;
-  }
+/* Style for the Why Water section */
+.why-water-section {
+  text-align: center;              /* Center all content */
+  margin: 0;                       /* Remove default margin */
+  background-color: #FFF7E1;       /* Light yellow background */
+  padding: 24px 0;                 /* Space above and below */
 }
+
+/* Title in all caps, smaller than subheading */
+.why-water-title {
+  text-transform: uppercase;       /* Make text all uppercase */
+  font-size: 1em;                  /* Made the WHY WATER? title smaller */
+  margin-bottom: 24px;             /* Added more space below the title */
+  margin-top: 40px;                /* Added more space above the title */
+  color: #003366;                  /* Dark blue color for WHY WATER? */
+}
+
+/* Make the Why Water subheading (caption) bigger and use Georgia font */
+.why-water-subheading {
+  font-size: 2.2em;         /* Make the caption bigger */
+  font-family: Georgia, serif; /* Use Georgia font */
+  font-weight: normal;
+  margin-top: 0;
+  margin-bottom: 24px;
+  color: #1A1A1A;
+}
+
+/* Justice image styling */
+.why-water-image {
+  margin-top: 20px;
+  width: 1100px;                  /* Made the photo much bigger */
+  max-width: 98%;
+  border-radius: 8px;
+}
+
+/* Caption for the Justice image - bottom right, but higher to avoid faces/tabs */
+.justice-caption,
+.health-caption,
+.education-caption,
+.women-caption {
+  position: absolute;
+  right: 90px;
+  bottom: 260px;
+  background: #FFF;
+  color: #1A1A1A;
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  font-size: 0.95em;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  max-width: 400px;
+  z-index: 3;
+  text-align: left;
+}
+
+/* Wrapper for photo and tabs */
+.why-water-photo-wrapper {
+  position: relative;             /* Allows absolute positioning of tabs inside */
+  display: inline-block;          /* Shrink to fit image size */
+}
+
+/* Tabs on top of the photo - now a little lower */
+.why-water-photo-wrapper .why-water-tabs {
+  position: absolute;             /* Place tabs over the photo */
+  top: 48px;                      /* Move tabs lower on the photo */
+  left: 50%;                      /* Center horizontally */
+  transform: translateX(-50%);  /* This is a transformation effect */
+  z-index: 2;                     /* Make sure tabs are above the photo */
+  margin-bottom: 0;
+  margin-top: 0;
+  background: transparent;
+  gap: 8px;
+}
+
+/* Remove extra margin above the image so the tabs touch the photo */
+.why-water-photo-wrapper .why-water-image {
+  margin-top: 0;
+}
+
+/* Tabs for the Why Water photo section */
+.why-water-tabs {
+  display: flex;                  /* Show tabs in a row */
+  justify-content: center;        /* Center the tabs */
+  margin-bottom: 12px;            /* Space below tabs */
+  gap: 8px;                       /* Space between each tab */
+}
+
+/* Style for each tab button - now full rectangles with curved edges */
+.tab-button {
+  background: #FFF;               /* White background */
+  color: #003366;                 /* Dark blue text */
+  border: 2px solid #003366;      /* Blue border */
+  border-radius: 8px;             /* All corners rounded */
+  padding: 8px 20px;              /* Padding inside the tab */
+  font-size: 1em;                 /* Normal font size */
+  cursor: pointer;                /* Pointer cursor on hover */
+  outline: none;                  /* Remove outline */
+  transition: background 0.2s;  /* This is a transition effect */
+  transform: none;              /* No transform here by default */
+  font-family: 'Proxima Nova', Arial, sans-serif; /* Use Proxima Nova for tabs */
+  text-transform: uppercase;      /* Make tab text all caps */
+  font-weight: normal;            /* Not bold */
+  margin-left: 0;                 /* No extra margin */
+}
+
+/* Remove double border between tabs */
+.tab-button + .tab-button {
+  border-left: 2px solid #003366; /* Keep border between tabs for separation */
+  border-radius: 8px;             /* All corners rounded */
+}
+
+/* Highlight the active tab */
+.tab-button.active {
+  background: #003366;            /* Blue background */
+  color: #FFF;                    /* White text */
+}
+
+/* New section: Real people. Real Progress. */
+.real-progress-section {
+  background: #77A8BB;         /* Blue background */
+  padding: 48px 0 48px 0;      /* Space above and below */
+  text-align: center;          /* Center the content */
+}
+
+.real-progress-title {
+  font-family: Georgia, serif; /* Use Georgia font */
+  font-size: 2.3em;            /* Make the title big */
+  color: #1A1A1A;              /* Dark text for contrast */
+  margin: 0;
+  font-weight: normal;
+}
+
+
