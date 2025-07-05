@@ -43,86 +43,67 @@
     </div>
     <!-- Photo area with tabs on top of the photo -->
     <div class="why-water-photo-wrapper">
-      <!-- Tabs are now inside the photo area, above the images -->
+      <!-- Tabs above the images. Use buttons for JS tab switching. -->
       <div class="why-water-tabs">
-        <button class="tab-button active" type="button" onclick="showPhoto('Justice')">JUSTICE</button>
-        <button class="tab-button" type="button" onclick="showPhoto('Health')">HEALTH</button>
-        <button class="tab-button" type="button" onclick="showPhoto('Education')">EDUCATION</button>
-        <button class="tab-button" type="button" onclick="showPhoto('Women')">WOMEN</button>
+        <button class="tab-button active" onclick="showWhyWaterPanel('justice')">JUSTICE</button>
+        <button class="tab-button" onclick="showWhyWaterPanel('health')">HEALTH</button>
+        <button class="tab-button" onclick="showWhyWaterPanel('education')">EDUCATION</button>
+        <button class="tab-button" onclick="showWhyWaterPanel('women')">WOMEN</button>
       </div>
-      <!-- Only one image is shown at a time -->
-      <img src="img/Justice.jpg" alt="Justice" class="why-water-image" id="Justice-photo">
-      <!-- Justice image caption, only show when Justice image is visible -->
-      <div class="justice-caption" id="Justice-caption">
-        <strong>Water is power.</strong><br>
-        Communities facing water scarcity are those hit hardest by climate and social inequality. Providing water isn't just about hydration—it’s justice.
+      <div class="why-water-tab-content">
+        <div id="justice" class="why-water-panel">
+          <img src="img/Justice.jpg" alt="Justice" class="why-water-image">
+          <div class="justice-caption">
+            <strong>Water is power.</strong><br>
+            Communities facing water scarcity are those hit hardest by climate and social inequality. Providing water isn't just about hydration—it’s justice.
+          </div>
+        </div>
+        <div id="health" class="why-water-panel" style="display:none;">
+          <img src="img/Health.jpg" alt="Health" class="why-water-image">
+          <div class="health-caption">
+            <strong>Water is healthcare.</strong><br>
+            Access to clean water prevents disease and saves lives—especially for children.
+          </div>
+        </div>
+        <div id="education" class="why-water-panel" style="display:none;">
+          <img src="img/Education.jpg" alt="Education" class="why-water-image">
+          <div class="education-caption">
+            <strong>Clean water helps kids stay in school.</strong><br>
+            When water is nearby, students spend less time collecting it—and more time learning.
+          </div>
+        </div>
+        <div id="women" class="why-water-panel" style="display:none;">
+          <img src="img/Women.jpg" alt="Women" class="why-water-image">
+          <div class="women-caption">
+            <strong>With clean water, women rise.</strong><br>
+            They reclaim time, safety, and the freedom to take charge of their lives.
+          </div>
+        </div>
       </div>
-      <img src="img/Health.jpg" alt="Health" class="why-water-image" id="Health-photo" style="display:none;">
-      <!-- Health image caption, only show when Health image is visible -->
-      <div class="health-caption" id="Health-caption" style="display:none;">
-        <strong>Water shouldn’t make you sick.</strong><br>
-        Access to clean water prevents disease and saves lives—especially for children.
-      </div>
-      <img src="img/Education.jpg" alt="Education" class="why-water-image" id="Education-photo" style="display:none;">
-      <!-- Education image caption, only show when Education image is visible -->
-      <div class="education-caption" id="Education-caption" style="display:none;">
-        <strong>Clean water helps kids stay in school.</strong><br>
-        When water is nearby, students spend less time collecting it—and more time learning.
-      </div>
-      <img src="img/Women.jpg" alt="Women" class="why-water-image" id="Women-photo" style="display:none;">
-      <!-- Women image caption, only show when Women image is visible -->
-      <div class="women-caption" id="Women-caption" style="display:none;">
-        <strong>When the burden of water is lifted, women rise.</strong><br>
-        They reclaim time, safety, and the freedom to take charge of their lives.
-      </div>
+      <!-- Simple JavaScript for tab switching -->
+      <script>
+        // Show the selected photo and caption, hide others, and highlight the active tab
+        function showWhyWaterPanel(panel) {
+          // Hide all panels
+          document.getElementById('justice').style.display = 'none';
+          document.getElementById('health').style.display = 'none';
+          document.getElementById('education').style.display = 'none';
+          document.getElementById('women').style.display = 'none';
+          // Show the selected panel
+          document.getElementById(panel).style.display = 'block';
+          // Remove 'active' from all tab buttons
+          var tabs = document.querySelectorAll('.why-water-tabs .tab-button');
+          tabs.forEach(function(tab) {
+            tab.classList.remove('active');
+          });
+          // Add 'active' to the clicked tab
+          if (panel === 'justice') tabs[0].classList.add('active');
+          if (panel === 'health') tabs[1].classList.add('active');
+          if (panel === 'education') tabs[2].classList.add('active');
+          if (panel === 'women') tabs[3].classList.add('active');
+        }
+      </script>
     </div>
-    <script>
-      // Beginner-friendly JavaScript to show the selected photo and highlight the active tab
-      function showPhoto(name) {
-        // Hide all photos
-        document.getElementById('Justice-photo').style.display = 'none';
-        document.getElementById('Health-photo').style.display = 'none';
-        document.getElementById('Education-photo').style.display = 'none';
-        document.getElementById('Women-photo').style.display = 'none';
-        // Hide all captions
-        var justiceCaption = document.getElementById('Justice-caption');
-        if (justiceCaption) justiceCaption.style.display = 'none';
-        var healthCaption = document.getElementById('Health-caption');
-        if (healthCaption) healthCaption.style.display = 'none';
-        var educationCaption = document.getElementById('Education-caption');
-        if (educationCaption) educationCaption.style.display = 'none';
-        var womenCaption = document.getElementById('Women-caption');
-        if (womenCaption) womenCaption.style.display = 'none';
-        // Show the chosen photo (check if it exists)
-        var photo = document.getElementById(name + '-photo');
-        if (photo) {
-          photo.style.display = '';
-        }
-        // Show caption only for Justice, Health, Education, or Women
-        if (name === 'Justice' && justiceCaption) {
-          justiceCaption.style.display = '';
-        }
-        if (name === 'Health' && healthCaption) {
-          healthCaption.style.display = '';
-        }
-        if (name === 'Education' && educationCaption) {
-          educationCaption.style.display = '';
-        }
-        if (name === 'Women' && womenCaption) {
-          womenCaption.style.display = '';
-        }
-        // Remove 'active' class from all tab buttons
-        var tabs = document.getElementsByClassName('tab-button');
-        for (var i = 0; i < tabs.length; i++) {
-          tabs[i].classList.remove('active');
-        }
-        // Add 'active' class to the clicked tab
-        if (name === 'Justice') tabs[0].classList.add('active');
-        if (name === 'Health') tabs[1].classList.add('active');
-        if (name === 'Education') tabs[2].classList.add('active');
-        if (name === 'Women') tabs[3].classList.add('active');
-      }
-    </script>
   </section>
   <!-- New section: 1 in 3 people globally do not have access to safe drinking water -->
   <section class="one-in-three-section">
@@ -133,24 +114,46 @@
     <!-- CTA button for the 1 in 3 section -->
     <a class="cta-button one-in-three-cta" href="#">Give Clean Water Today</a>
   </section>
-  <!-- New section: Real people. Real Progress. and overlay wrapper -->
-  <div class="overlay-wrapper">
-    <section class="real-progress-section">
-      <h2 class="real-progress-title">Real people. Real Progress.</h2>
-      <!-- Centered Tackling the Water Crisis column only -->
-      <div class="real-progress-center">
-        <h3 class="real-progress-heading">Tackling the Water Crisis</h3>
-        <div class="real-progress-subheading">With the help of local experts and community members, we find a sustainable solution appropriate for each place we work at.</div>
-      </div>
-    </section>
-    <!-- Overlay section: See the Change You Create -->
-    <div class="see-change-overlay">
-      <!-- This section overlays the bottom of Real Progress and top of the dark section -->
-      <h2 class="see-change-title">See the Change You Create</h2>
+  <!-- New section: Real people. Real Progress. -->
+  <section class="real-progress-section">
+    <h2 class="real-progress-title">Real people. Real Progress.</h2>
+    <!-- Centered Tackling the Water Crisis column only -->
+    <div class="real-progress-center">
+      <h3 class="real-progress-heading">Tackling the Water Crisis</h3>
+      <div class="real-progress-subheading">With the help of local experts and community members,<b> we find a sustainable solution appropriate for each place we work at.</div>
     </div>
-    <section class="dark-section">
-      <!-- This is a new section with a dark background. No text inside. -->
-    </section>
-  </div>
+  </section>
+
+  <!-- Blue section - now bigger -->
+  <section class="blue-section">
+    <!-- See the Change You Create overlay positioned here -->
+    <div class="see-change-overlay">
+      <h2 class="see-change-title">See the Change You Create</h2>
+      <div class="see-change-subheading">
+        100% of your donation funds clean water projects around the world and can be completely tracked with GPS coordinates and photos.
+      </div>
+      <!-- Navigation row with logo and tabs above the map -->
+      <div class="see-change-nav-row">
+        <!-- Logo next to the tabs -->
+        <img src="img/cw_logo3.webp" alt="Charity Water Logo" class="see-change-logo">
+        <!-- Navigation tabs, now connected and same width as map -->
+        <div class="see-change-tabs">
+          <button class="see-change-tab active" type="button">People Served</button>
+          <button class="see-change-tab" type="button">Water Projects</button>
+          <button class="see-change-tab" type="button">Countries</button>
+        </div>
+      </div>
+      <!-- Map image below the navigation tabs -->
+      <img src="img/map.svg" alt="Map showing clean water projects" class="see-change-map">
+    </div>
+  </section>
+  
+  <!-- New Make a Difference section -->
+  <section class="make-difference-section">
+    <h2 class="make-difference-title">It's time to make a difference</h2>
+    <div class="make-difference-subheading">
+      With your help, we're one step closer to ending the water crisis.<br><strong>Today, you can change lives.</strong>
+    </div>
+  </section>
 </body>
 </html>
