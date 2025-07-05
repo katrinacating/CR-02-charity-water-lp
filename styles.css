@@ -4,7 +4,7 @@
 html, body {
   min-height: 100vh; /* Make sure the page fills the screen */
   overflow-x: hidden; /* Prevent horizontal scroll */
-  /* Allow vertical scroll */
+  overflow-y: auto;   /* Only show vertical scroll if needed */
 }
 body {
   /* No background color for the whole page */
@@ -12,6 +12,7 @@ body {
   margin: 0;
   padding: 0;
   color: #1A1A1A; /* Set all text color to dark gray */
+  position: relative; /* Added for absolute positioning of overlay */
 }
 
 /* Remove default margin from headings and paragraphs */
@@ -199,19 +200,21 @@ section[style*="background-color: #FFF7E1"] h2 {
 .why-water-title {
   text-transform: uppercase;       /* Make text all uppercase */
   font-size: 1em;                  /* Made the WHY WATER? title smaller */
-  margin-bottom: 24px;             /* Added more space below the title */
+  margin-bottom: 8px;             /* Make title closer to subheading */
   margin-top: 40px;                /* Added more space above the title */
   color: #003366;                  /* Dark blue color for WHY WATER? */
+  letter-spacing: 2px;
+  font-weight: normal;
+  font-family: 'Proxima Nova', Arial, sans-serif;
 }
 
 /* Make the Why Water subheading (caption) bigger and use Georgia font */
 .why-water-subheading {
-  font-size: 2.2em;         /* Make the caption bigger */
-  font-family: Georgia, serif; /* Use Georgia font */
-  font-weight: normal;
-  margin-top: 0;
-  margin-bottom: 24px;
+  font-family: Georgia, 'Times New Roman', Times, serif; /* Use Georgia font */
+  font-size: 2.6em; /* Make caption even bigger */
+  margin-bottom: 40px;
   color: #1A1A1A;
+  font-weight: normal;
 }
 
 /* Justice image styling */
@@ -222,24 +225,25 @@ section[style*="background-color: #FFF7E1"] h2 {
   border-radius: 8px;
 }
 
-/* Caption for the Justice image - bottom right, but higher to avoid faces/tabs */
+/* Center the captions at the bottom of the photos */
 .justice-caption,
 .health-caption,
 .education-caption,
 .women-caption {
   position: absolute;
-  right: 90px;
-  bottom: 260px;
+  left: 50%;                      /* Center horizontally */
+  bottom: 40px;                   /* Space from bottom of photo */
+  transform: translateX(-50%);    /* Center the caption */
   background: #FFF;
   color: #1A1A1A;
   font-family: 'Proxima Nova', Arial, sans-serif;
-  font-size: 0.95em;
-  padding: 12px 16px;
+  font-size: 1em;                 /* Made the captions smaller */
+  padding: 10px 18px;             /* Smaller padding */
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  max-width: 400px;
+  max-width: 90%;
   z-index: 3;
-  text-align: left;
+  text-align: center;             /* Center the text inside the caption */
 }
 
 /* Wrapper for photo and tabs */
@@ -304,19 +308,129 @@ section[style*="background-color: #FFF7E1"] h2 {
   color: #FFF;                    /* White text */
 }
 
-/* New section: Real people. Real Progress. */
-.real-progress-section {
-  background: #77A8BB;         /* Blue background */
-  padding: 48px 0 48px 0;      /* Space above and below */
-  text-align: center;          /* Center the content */
+/* New section: 1 in 3 people globally do not have access to safe drinking water
+   Uses the same background color as the Why Water section (#FFF7E1) */
+.one-in-three-section {
+  background: #FFF7E1; /* Light background for emphasis, matches Why Water section */
+  text-align: center;
+  padding: 48px 0;
 }
-
-.real-progress-title {
-  font-family: Georgia, serif; /* Use Georgia font */
-  font-size: 2.3em;            /* Make the title big */
-  color: #1A1A1A;              /* Dark text for contrast */
+.one-in-three-title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 2.5em;
+  color: #1A1A1A;
   margin: 0;
   font-weight: normal;
 }
 
+/* New subheading style for the 1 in 3 section */
+.one-in-three-subheading {
+  font-size: 1em; /* Regular size for subheading */
+  font-family: 'Proxima Nova', Arial, sans-serif; /* Use Proxima Nova font */
+  color: #1A1A1A;
+  margin-top: 18px;
+  margin-bottom: 0;
+  font-weight: normal;
+}
 
+/* New section: Real people. Real Progress. */
+/* Real people. Real Progress. section styles */
+.real-progress-section {
+  background: url('img/Change.jpg') center center/cover no-repeat; /* Full background image */
+  min-height: 800px; /* Make the background photo bigger */
+  width: 100vw;
+  padding: 48px 0 80px 0;      /* Space above and below the text */
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Center the content in the section */
+.real-progress-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+/* Title style */
+.real-progress-title {
+  font-family: Georgia, serif;
+  font-size: 3em; /* Match 1 in 3 title size */
+  color: #FFF; /* White text for title */
+  margin: 0 0 18px 0; /* Less space below title */
+  font-weight: normal;
+  text-align: center;
+}
+
+/* Heading style */
+.real-progress-heading {
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  font-size: 1.7em;
+  color: #FFF; /* White text for heading */
+  margin-bottom: 8px; /* Less space below heading */
+  margin-top: 0;
+  font-weight: bold;
+  border-bottom: 3px solid #FFC907;
+  display: inline-block;
+  transition: color 0.2s;
+}
+
+.real-progress-heading:hover {
+  color: #FFC907; /* Yellow on hover */
+}
+
+/* Subheading style */
+.real-progress-subheading {
+  font-size: 1.2em;
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  color: #FFF; /* White text for subheading */
+  margin-bottom: 18px;
+  margin-top: 0; /* Remove extra space above subheading */
+  font-weight: normal;
+}
+
+/* Special CTA button style for the 1 in 3 section */
+.one-in-three-cta {
+  border-radius: 8px; /* All corners rounded for a rectangle */
+  margin-top: 32px;
+  font-size: 1em;     /* Smaller font size */
+  padding: 10px 28px; /* Smaller padding */
+}
+
+/* New dark section styles */
+.dark-section {
+  background: #1a1a1a;
+  min-height: 400px; /* Make the dark section bigger */
+  padding: 64px 0; /* Add space above and below */
+  text-align: center;
+}
+
+/* Wrapper for overlay and two sections */
+.overlay-wrapper {
+  position: relative; /* Make overlay position relative to this wrapper */
+  overflow: visible;  /* Prevent clipping of overlay */
+}
+
+/* Overlay section: See the Change You Create */
+.see-change-overlay {
+  /* Position the overlay so its top half covers the bottom of Real Progress */
+  position: absolute;
+  left: 50%;
+  bottom: 0; /* Place overlay at the bottom edge */
+  transform: translate(-50%, 50%); /* Half above, half below the bottom edge */
+  width: 60vw;
+  background: #1a1a1a;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  padding: 48px 0;
+  z-index: 10;
+  text-align: center;
+}
+
+.see-change-title {
+  color: #FFF; /* White text for the title */
+  font-family: Georgia, serif; /* Use Georgia font for the title */
+  font-size: 2.5em;
+  margin: 0;
+}
