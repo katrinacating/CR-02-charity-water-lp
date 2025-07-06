@@ -29,6 +29,10 @@ header {
   height: 90px;
   line-height: normal;
   box-sizing: border-box;
+}
+
+header {
+  height: 120px;
   border-bottom: 2px solid #1A1A1A;
   display: flex;
   align-items: center;
@@ -291,58 +295,52 @@ header::after {
   background-color: #FFD84D;  /* Slightly darker yellow on hover */
 }
 
-/* ========== Real People. Real Progress. Section ========== */
-.real-progress-section {
+/* ========== Tackling Water Crisis Section ========== */
+.tackling-water-crisis-section {
   background-color: #77A8BB;
   background-image: url('img/Change.jpg');
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 750px;
+  min-height: 850px;
   width: 100vw;
   padding: 48px 0 80px 0;
   text-align: center;
   box-sizing: border-box;
   position: relative;
 }
-.real-progress-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 32px;
-}
-.real-progress-title {
-  font-family: Georgia, serif;
-  font-size: 2.5em;
-  color: #FFF;
-  margin: 0;
-  font-weight: bold;
+.tackling-water-crisis-center {
+  /* White bubble background that contains both heading and subheading */
+  background: #FFF;
+  border-radius: 16px;
+  padding: 20px 25px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  max-width: 700px;
+  margin: 16px auto;
   text-align: center;
 }
 
-.real-progress-heading {
-  font-family: 'Proxima Nova', Arial, sans-serif;
+.tackling-water-crisis-heading {
+  /* Heading text styles */
+  font-family: Georgia, serif;
   font-size: 2.5em;
-  color: #FFF;
-  margin-bottom: 8px;
-  margin-top: 0;
+  color: #1A1A1A;
   font-weight: bold;
+  text-align: center;
   border-bottom: 3px solid #FFC907;
-  display: inline-block;
-  transition: color 0.2s;
+  padding-bottom: 8px;
+  margin: 0 0 12px 0;
+  display: block;
 }
 
-.real-progress-heading:hover {
-  color: #FFC907;
-}
-.real-progress-subheading {
+.tackling-water-crisis-subheading {
   font-size: 1em;
   font-family: 'Proxima Nova', Arial, sans-serif;
-  color: #FFF;
-  margin-bottom: 18px;
+  color: #1A1A1A;
+  margin-bottom: 8px;
   margin-top: 5px;
   font-weight: normal;
+  text-align: center;
 }
 
 /* ========== See the Change You Create Section ========== */
@@ -356,7 +354,7 @@ header::after {
   position: absolute;              /* Position absolutely inside blue-section */
   left: 50%;
   top: 0;
-  transform: translate(-50%, -10%); /* Move up by 50% of its own height */
+  transform: translate(-50%, -15%); /* Move up by 50% of its own height */
   width: 70vw;
   max-width: 1200px;
   margin: 0;
@@ -448,7 +446,7 @@ header::after {
   background: #77A8BB;         /* Blue background color */
   min-height: 1000px;          /* Make it bigger - increased from 900px */
   width: 100vw;
-  padding: 140px 0 300px 0;    /* Increased bottom padding for more space */
+  padding: 140px 0 10px 0;    /* Increased bottom padding for more space */
   text-align: center;          /* Center all text content */
   margin: 0;
   position: relative;          /* Needed for overlay positioning */
@@ -458,7 +456,7 @@ header::after {
 .make-difference-section {
   background: #77A8BB;         /* Blue background color */
   text-align: center;          /* Center all text content */
-  padding: 50px;             /* Space above and below content */
+  padding: 10px 20px 20px 20px; /* Reduced space above content */
   width: 100vw;
   margin: 0;
 }
@@ -481,6 +479,215 @@ header::after {
   font-weight: normal;         /* Make sure subheading is not bold */
   max-width: 600px;            /* Limit width for better readability */
   line-height: 1.5;            /* Add line height for better readability */
+}
+
+/* ========== Image Gallery Section ========== */
+.image-gallery-section {
+  background: #77A8BB;         /* Blue background color to match other sections */
+  padding: 20px 20px 60px 20px; /* Added more space at the bottom */
+  width: 100vw;
+  margin: 0;
+  text-align: center;          /* Center all content */
+}
+
+.image-gallery {
+  display: flex;               /* Use flexbox for horizontal layout */
+  justify-content: center;     /* Center the images horizontally */
+  gap: 30px;                   /* Space between images */
+  max-width: 1200px;           /* Limit total width */
+  margin: 0 auto;              /* Center the gallery container */
+  flex-wrap: wrap;             /* Allow wrapping on smaller screens */
+}
+
+.gallery-item {
+  position: relative;          /* Position relative for overlay positioning */
+  width: 300px;                /* Fixed width for each image container */
+  height: 500px;               /* Fixed height for consistent layout */
+  border-radius: 12px;         /* Rounded corners */
+  overflow: hidden;            /* Hide overflow for rounded corners */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.gallery-image {
+  width: 100%;                 /* Fill the container */
+  height: 100%;                /* Fill the container */
+  object-fit: cover;           /* Fill the container completely, may crop to fit */
+  display: block;              /* Remove default image spacing */
+  transition: all 0.3s ease;   /* Smooth transition for hover effects */
+}
+
+.gallery-overlay {
+  position: absolute;          /* Position absolutely over the image */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3); /* Semi-transparent black background */
+  display: flex;               /* Use flexbox for centering */
+  align-items: flex-end;       /* Align to bottom */
+  justify-content: center;     /* Center horizontally */
+  padding-bottom: 30px;        /* Add padding from bottom for better positioning */
+  transition: background 0.3s ease; /* Smooth background transition */
+  pointer-events: none;        /* Allow clicks to pass through */
+}
+
+.gallery-text {
+  color: #FFC907;              /* Yellow text color */
+  font-family: Georgia, serif; /* Use Georgia font like other headings */
+  font-size: 1.5em;              /* Large text size */
+  font-weight: bold;           /* Bold text */
+  text-transform: uppercase;   /* Make text uppercase */
+  letter-spacing: 2px;         /* Add letter spacing */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Add text shadow for readability */
+  z-index: 2;                  /* Ensure text appears above overlay */
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.02);      /* Slight zoom effect on hover */
+}
+
+.gallery-item:hover .gallery-overlay {
+  background: rgba(0, 0, 0, 0.4); /* Black transparent overlay on hover */
+}
+
+/* ========== Footer Section ========== */
+.footer-section {
+  background: #FFF7E1;         /* Light cream background color */
+  padding: 80px 20px 60px 20px; /* Generous padding for spacious feel */
+  width: 100vw;
+  margin: 0;
+  text-align: center;          /* Center all content */
+}
+
+.footer-container {
+  max-width: 1200px;           /* Limit total width */
+  margin: 0 auto;              /* Center the container */
+  display: grid;               /* Use CSS Grid for layout */
+  grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+  gap: 60px;                   /* Space between columns */
+  align-items: start;          /* Align items to top */
+}
+
+.footer-column {
+  text-align: center;          /* Center content in each column */
+}
+
+.footer-heading {
+  font-family: Georgia, serif; /* Use Georgia font like other headings */
+  font-size: 1em;              /* Updated to 1px */
+  color: #1A1A1A;              /* Dark gray text */
+  margin-bottom: 20px;         /* Space below heading */
+  font-weight: bold;           /* Bold text */
+  text-transform: uppercase;   /* Make text uppercase */
+  letter-spacing: 1px;         /* Add letter spacing */
+}
+
+.footer-text {
+  font-family: 'Proxima Nova', Arial, sans-serif; /* Use Proxima Nova font */
+  font-size: 1em;              /* Updated to 1px */
+  color: #1A1A1A;              /* Dark gray text */
+  line-height: 1.6;            /* Good line height for readability */
+  margin-bottom: 15px;         /* Space below each paragraph */
+}
+
+.footer-email {
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  font-size: 1.1em;
+  color: #003366;              /* Dark blue color for email */
+  text-decoration: none;       /* Remove underline */
+  font-weight: bold;           /* Make email bold */
+  transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.footer-email:hover {
+  color: #FFC907;              /* Yellow on hover */
+}
+
+.subscription-form {
+  display: flex;               /* Use flexbox for form layout */
+  flex-direction: column;      /* Stack elements vertically */
+  align-items: center;         /* Center align items */
+  gap: 15px;                   /* Space between form elements */
+  margin-top: 20px;            /* Space above form */
+}
+
+.subscription-input {
+  width: 100%;                 /* Full width */
+  max-width: 300px;            /* Limit maximum width */
+  padding: 12px 16px;          /* Padding inside input */
+  border: 2px solid #1A1A1A;   /* Dark border */
+  border-radius: 8px;          /* Rounded corners */
+  font-size: 1em;              /* Regular font size */
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  outline: none;               /* Remove default outline */
+  transition: border-color 0.3s ease; /* Smooth border transition */
+}
+
+.subscription-input:focus {
+  border-color: #FFC907;       /* Yellow border on focus */
+}
+
+.subscription-button {
+  background-color: #FFC907;   /* Yellow background */
+  color: #1A1A1A;              /* Dark text */
+  border: 2px solid #1A1A1A;   /* Dark border */
+  padding: 12px 24px;          /* Padding inside button */
+  border-radius: 8px;          /* Rounded corners */
+  font-size: 1em;              /* Regular font size */
+  font-weight: bold;           /* Bold text */
+  cursor: pointer;             /* Pointer cursor */
+  transition: background-color 0.3s ease; /* Smooth background transition */
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  text-transform: uppercase;   /* Uppercase text */
+  letter-spacing: 1px;         /* Letter spacing */
+}
+
+.subscription-button:hover {
+  background-color: #FFD84D;   /* Darker yellow on hover */
+}
+
+.social-media {
+  display: flex;               /* Use flexbox for social media buttons */
+  justify-content: center;     /* Center the buttons */
+  gap: 20px;                   /* Space between buttons */
+  margin-top: 20px;            /* Space above social media section */
+}
+
+.social-button {
+  display: inline-block;       /* Inline block for button styling */
+  width: 50px;                 /* Fixed width */
+  height: 50px;                /* Fixed height for square buttons */
+  background-color: #003366;   /* Dark blue background */
+  color: #FFF;                 /* White text */
+  text-decoration: none;       /* Remove underline */
+  border-radius: 50%;          /* Circular buttons */
+  display: flex;               /* Use flexbox for centering */
+  align-items: center;         /* Center vertically */
+  justify-content: center;     /* Center horizontally */
+  font-size: 1.2em;            /* Larger font for icons */
+  transition: all 0.3s ease;   /* Smooth transition */
+  font-weight: bold;           /* Bold text */
+}
+
+.social-button:hover {
+  background-color: #FFC907;   /* Yellow background on hover */
+  color: #1A1A1A;              /* Dark text on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.footer-bottom {
+  margin-top: 60px;            /* Space above bottom section */
+  padding-top: 40px;           /* Padding above bottom section */
+  border-top: 2px solid #1A1A1A; /* Top border */
+  text-align: center;          /* Center align text */
+}
+
+.footer-bottom-text {
+  font-family: 'Proxima Nova', Arial, sans-serif;
+  font-size: 0.9em;            /* Slightly smaller font */
+  color: #1A1A1A;              /* Dark gray text */
+  margin: 0;                   /* Remove margin */
 }
 
 /* ========== Responsive Styles ========== */
@@ -544,6 +751,14 @@ header::after {
   .see-change-tabs {
     width: 100%;
     max-width: 100%;
+  }
+  /* Footer responsive styles for tablet */
+  .footer-container {
+    grid-template-columns: 1fr; /* Single column on tablet */
+    gap: 40px;                   /* Reduced gap */
+  }
+  .footer-section {
+    padding: 60px 20px 40px 20px; /* Reduced padding */
   }
 }
 @media (max-width: 600px) {
@@ -658,13 +873,39 @@ header::after {
     min-height: 400px;
     padding: 16px 4px 40px 4px;
   }
-    font-size: 1.3em;
-  }
   .real-progress-heading {
     font-size: 1em;
   }
   .real-progress-subheading {
     font-size: 0.9em;
+  }
+  /* Footer responsive styles for mobile */
+  .footer-section {
+    padding: 40px 10px 30px 10px; /* Further reduced padding */
+  }
+  .footer-container {
+    gap: 30px;                   /* Smaller gap on mobile */
+  }
+  .footer-heading {
+    font-size: 1px;             /* Set to 1px as requested */
+  }
+  .footer-text {
+    font-size: 1px;             /* Set to 1px as requested */
+  }
+  .subscription-input {
+    max-width: 250px;           /* Smaller input on mobile */
+  }
+  .social-media {
+    gap: 15px;                  /* Smaller gap between social buttons */
+  }
+  .social-button {
+    width: 45px;                /* Smaller social buttons */
+    height: 45px;
+    font-size: 1em;
+  }
+  .footer-bottom {
+    margin-top: 40px;           /* Reduced margin on mobile */
+    padding-top: 30px;          /* Reduced padding on mobile */
   }
 }
 
