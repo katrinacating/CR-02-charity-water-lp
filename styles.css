@@ -446,7 +446,7 @@ header::after {
   background: #77A8BB;         /* Blue background color */
   min-height: 1000px;          /* Make it bigger - increased from 900px */
   width: 100vw;
-  padding: 140px 0 10px 0;    /* Increased bottom padding for more space */
+  padding: 140px 0 0px 0;    /* Increased bottom padding for more space */
   text-align: center;          /* Center all text content */
   margin: 0;
   position: relative;          /* Needed for overlay positioning */
@@ -456,7 +456,7 @@ header::after {
 .make-difference-section {
   background: #77A8BB;         /* Blue background color */
   text-align: center;          /* Center all text content */
-  padding: 10px 20px 20px 20px; /* Reduced space above content */
+  padding: 0px 20px 0px 20px; /* Reduced space above content */
   width: 100vw;
   margin: 0;
 }
@@ -484,7 +484,7 @@ header::after {
 /* ========== Image Gallery Section ========== */
 .image-gallery-section {
   background: #77A8BB;         /* Blue background color to match other sections */
-  padding: 20px 20px 60px 20px; /* Added more space at the bottom */
+  padding: 30px 20px 60px 20px; /* Added more space at the bottom */
   width: 100vw;
   margin: 0;
   text-align: center;          /* Center all content */
@@ -554,7 +554,7 @@ header::after {
 /* ========== Footer Section ========== */
 .footer-section {
   background: #FFF7E1;         /* Light cream background color */
-  padding: 80px 20px 60px 20px; /* Generous padding for spacious feel */
+  padding: 80px 20px 80px 20px; /* Generous padding for spacious feel */
   width: 100vw;
   margin: 0;
   text-align: center;          /* Center all content */
